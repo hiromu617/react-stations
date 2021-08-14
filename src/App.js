@@ -31,7 +31,6 @@ export const App = () => {
         <h1>Dog Application</h1>
       </header>
       <p>犬の画像を表示するサイトです</p>
-      {loading && <p>更新中</p>}
       <img width="400px" src={dogUrl} />
       <button onClick={() => setRandomUrl()} style={{display: "block"}}>更新</button>
     </div>
