@@ -20,6 +20,7 @@ export const App = () => {
         width="400px"
         src={dogUrl}
       />
+      <button onClick={() => setDogUrl('https://images.dog.ceo/breeds/spaniel-sussex/n02102480_4640.jpg')}>更新</button>
     </div>
   )
 }
