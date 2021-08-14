@@ -12,13 +12,14 @@ export const App = () => {
   const [dogUrl, setDogUrl] = useState(
     'https://images.dog.ceo/breeds/dachshund/dachshund-6.jpg',
   )
-
+  const END_POINT = 'https://dog.ceo/api/breeds/image/random'
   const setRandomUrl = () => {
-    fetch('https://dog.ceo/api/breeds/image/random').then(res => {
-      const result = res.json()
-      if (result.status === 'success') setDogUrl(result.message)
-      else alert('An error occured')
-    })
+    fetch(END_POINT)
+      .then(res => res.json())
+      .then(result => {
+        if (result.status === 'success') setDogUrl(result.message)
+        else alert('An error occured')
+      })
   }
 
   return (
