@@ -9,8 +9,15 @@ import './App.css'
  */
 export const App = () => {
   return (
-    <div>
-      <header>Dog Application</header>
+    <div style={{padding: "10px"}}>
+      <header>
+        <h1>Dog Application</h1>
+      </header>
+      <p>犬の画像を表示するサイトです</p>
+      <img
+        width="400px"
+        src="https://images.dog.ceo/breeds/dachshund/dachshund-6.jpg"
+      />
     </div>
   )
 }
