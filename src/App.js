@@ -15,12 +15,16 @@ export const App = () => {
   const [loading, setLoading] = useState(false)
   const setRandomUrl = async () => {
     setLoading(true)
-    await fetch(END_POINT)
-      .then(res => res.json())
-      .then(result => {
-        if (result.status === 'success') setDogUrl(result.message)
-        else alert('An error occured')
-      })
+    // await fetch(END_POINT)
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     if (result.status === 'success') setDogUrl(result.message)
+    //     else alert('An error occured')
+    //   })
+    const res = await fetch(END_POINT)
+    const result = await res.json()
+    if (result.status === 'success') setDogUrl(result.message)
+    else alert('An error occured')
     setLoading(false)
   }
 
@@ -31,11 +35,20 @@ export const App = () => {
       </header>
       <div className="container">
         <p>犬の画像を表示するサイトです</p>
-        <img height="400px" src={dogUrl} />
+        <img
+          height="400px"
+          width="400px"
+          src={dogUrl}
+          style={{ objectFit: 'cover' }}
+        />
       </div>
       <div className="btn-wrap">
-        <button onClick={() => setRandomUrl()} className="btn" disabled={loading}>
-          {loading ? "更新中...": "更新"}
+        <button
+          onClick={() => setRandomUrl()}
+          className="btn"
+          disabled={loading}
+        >
+          {loading ? '更新中...' : '更新'}
         </button>
       </div>
     </div>
