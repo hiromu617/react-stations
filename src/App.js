@@ -29,9 +29,9 @@ export const App = () => {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
-    </div>
+    </>
   )
 }
