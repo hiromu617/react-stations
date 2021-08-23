@@ -30,7 +30,7 @@ export const App = () => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
     </div>
   )
