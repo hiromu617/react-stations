@@ -1,7 +1,7 @@
 import React from 'react';
-import DogImage from './DogImage'
+import {DogImage} from './DogImage'
 
-const Description = ({dogUrl, setRandomUrl, loading}) => {
+export const Description = ({dogUrl, setRandomUrl, loading}) => {
   return (
     <>
       <div className="container">
@@ -21,4 +21,3 @@ const Description = ({dogUrl, setRandomUrl, loading}) => {
   )
 }
 Description.propTypes = String
-export default Description

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DogImage = ({url}) => {
+export const DogImage = ({url}) => {
   return (
     <img
           height="400px"
@@ -13,4 +13,3 @@ const DogImage = ({url}) => {
 DogImage.propTypes = {
   url: String
 }
-export default DogImage
