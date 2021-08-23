@@ -1,12 +1,12 @@
 import React from 'react';
 import DogImage from './DogImage'
 
-const Discription = ({dogUrl, setRandomUrl, loading}) => {
+const Description = ({dogUrl, setRandomUrl, loading}) => {
   return (
     <>
       <div className="container">
         <p>犬の画像を表示するサイトです</p>
-        <DogImage dogUrl={dogUrl}/>
+        <DogImage url={dogUrl}/>
       </div>
       <div className="btn-wrap">
         <button
@@ -20,5 +20,5 @@ const Discription = ({dogUrl, setRandomUrl, loading}) => {
     </>
   )
 }
-Discription.propTypes = String
-export default Discription
+Description.propTypes = String
+export default Description

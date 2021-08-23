@@ -1,16 +1,16 @@
 import React from 'react';
 
-const DogImage = ({dogUrl}) => {
+const DogImage = ({url}) => {
   return (
     <img
           height="400px"
           width="400px"
-          src={dogUrl}
+          src={url}
           style={{ objectFit: 'cover' }}
     />
   )
 }
 DogImage.propTypes = {
-  dogUrl: String
+  url: String
 }
 export default DogImage

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { useState } from 'react'
 import './App.css'
-import Discription from './components/Discription'
+import Description  from './components/Description'
 import Header from './components/Header'
 /**
  *
@@ -31,7 +31,7 @@ export const App = () => {
   return (
     <div>
       <Header/>
-      <Discription dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
+      <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
     </div>
   )
 }
