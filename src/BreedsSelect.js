@@ -1,12 +1,12 @@
 import React from 'react'
 
-export const BreedsSelect = ({breeds, selectedBreed, setSelectedBreed}) => {
-
+export const BreedsSelect = ({ breeds, selectedBreed, setSelectedBreed }) => {
   return (
     <select
       value={selectedBreed}
-      onChange={(e) => setSelectedBreed(e.target.value)}
+      onChange={e => setSelectedBreed(e.target.value)}
     >
+      <option value="not-selected">-</option>
       {breeds &&
         breeds.map((breed, i) => (
           <option key={i} value={breed}>
