@@ -31,8 +31,8 @@ export const App = () => {
   return (
     <>
       <Header />
-      <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
       <DogListContainer/>
+      <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
     </>
   )
 }

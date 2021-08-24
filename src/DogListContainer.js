@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-
+import {BreedsSelect} from "./BreedsSelect"
 const END_POINT = 'https://dog.ceo/api/breeds/list/all'
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState(null)
+  const [selectedBreed, setSelectedBreed] = useState(null)
+
   useEffect(() => {
     const fetchBreedsList = async () => {
       try {
@@ -18,5 +20,11 @@ export const DogListContainer = () => {
     }
     fetchBreedsList()
   }, [])
-  return <ul>{breeds && breeds.map((breed, i) => <li key={i}>{breed}</li>)}</ul>
+
+  return (
+    <div style={{textAlign: 'center'}}>
+    <p>{selectedBreed}</p>
+      <BreedsSelect breeds={breeds} selectedBreed={selectedBreed} setSelectedBreed={setSelectedBreed}/>
+    </div>
+  )
 }
