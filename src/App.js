@@ -4,6 +4,7 @@ import { useState } from 'react'
 import './App.css'
 import {Description}  from './Description'
 import {Header} from './Header'
+import {DogListContainer} from './DogListContainer'
 /**
  *
  * @type {React.FC}
@@ -17,7 +18,6 @@ export const App = () => {
   const setRandomUrl = async () => {
     setLoading(true)
     try{
-
       const res = await fetch(END_POINT)
       const result = await res.json()
       if (result.status === 'success') setDogUrl(result.message)
@@ -32,6 +32,7 @@ export const App = () => {
     <>
       <Header />
       <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
+      <DogListContainer/>
     </>
   )
 }
