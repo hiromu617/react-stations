@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BreedsSelect } from './BreedsSelect'
-import { DogImage } from './DogImage'
-const END_POINT = 'https://dog.ceo/api/breeds/list/all'
+
+const END_POINT = 'https://dog.ceo/'
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState(null)
@@ -17,7 +17,7 @@ export const DogListContainer = () => {
     setLoading(true)
     try {
       const res = await fetch(
-        `https://dog.ceo/api/breed/${selectedBreed}/images/random/12`,
+        `${END_POINT}api/breed/${selectedBreed}/images/random/12`,
       )
       const result = await res.json()
       console.log(result)
@@ -29,10 +29,11 @@ export const DogListContainer = () => {
     setLoading(false)
   }
 
+  // マウント時に犬種のリストを取得
   useEffect(() => {
     const fetchBreedsList = async () => {
       try {
-        const res = await fetch(END_POINT)
+        const res = await fetch(END_POINT + "api/breeds/list/all")
         const result = await res.json()
         if (result.status === 'success') {
           setBreeds(Object.keys(result.message))
