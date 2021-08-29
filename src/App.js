@@ -1,10 +1,10 @@
 // DO NOT DELETE
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import './App.css'
-import {Description}  from './Description'
-import {Header} from './Header'
-import {DogListContainer} from './DogListContainer'
+import { Description } from './Description'
+import { Header } from './Header'
+import { DogListContainer } from './DogListContainer'
 /**
  *
  * @type {React.FC}
@@ -15,24 +15,30 @@ const END_POINT = 'https://dog.ceo/api/breeds/image/random'
 export const App = () => {
   const [dogUrl, setDogUrl] = useState(INITIAL_URL)
   const [loading, setLoading] = useState(false)
-  const setRandomUrl = async () => {
+
+  const setRandomUrl = useCallback(async () => {
     setLoading(true)
-    try{
+    try {
       const res = await fetch(END_POINT)
       const result = await res.json()
       if (result.status === 'success') setDogUrl(result.message)
       else alert('An error occured')
-    } catch(e) {
+    } catch (e) {
       console.log(e)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
-  }
+  }, [])
 
   return (
     <>
       <Header />
-      <Description  dogUrl={dogUrl} setRandomUrl={setRandomUrl} loading={loading}/>
-      <DogListContainer/>
+      <Description
+        dogUrl={dogUrl}
+        setRandomUrl={setRandomUrl}
+        loading={loading}
+      />
+      <DogListContainer />
     </>
   )
 }

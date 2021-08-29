@@ -26,8 +26,9 @@ export const DogListContainer = () => {
       else alert('An error occured')
     } catch (e) {
       console.log(e)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }, [selectedBreed])
 
   // マウント時に犬種のリストを取得
